@@ -30,6 +30,10 @@ def test_writing_right():
     with open(path) as f:
         assert f.read() == contents
 
+def test_word_parse():
+    """test function to parse keys to user from rax text file """
+    keys = madlib.parse("This is an {adjective} and also {adjective} {noun} of a test.")
+    assert keys == ['adjective', 'adjective', 'noun']
 
 #  need to test input from user
 

@@ -21,25 +21,29 @@ def write_file(path, contents):
 
 
 # need to take contents and parse out {} to be prompts for user
-def build_list():
+def build_keys(contents):
     """
-    this function with find the {and } characters in the .txt file
+    this function with find the {} characters in the .txt file
     it uses a first and second variable to iterate through each set
     these are stored as a list """
     second = 0
     num_brackets = contents.count('{')
     for i in range(num_brackets):
-        first = contents.find('{', second)
+        first = contents.find('{', second) +1
         second = contents.find('}', first)
         found_word = contents[first:second]
-        print (found_word)
         word_list.append(found_word)
-
     return (word_list)
 
 # once a list of found_words is worked out with the slices
 # these need to be prompted to user and then the user answer can be swapped with the
 # slices and then this list can be set through format.
+
+
+def parse(raw):
+    """ parse pulls together tow functions: build keys and build stripped """
+    prompts = build_keys(raw)
+    return prompts
 
 
 def greeting():
