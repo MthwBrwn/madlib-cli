@@ -1,6 +1,6 @@
 
 word_list = []
-contents = ''
+
 
 # need to parse questions and serialize the users questions into a answerlist
 
@@ -14,8 +14,13 @@ def read_file(raw):
         return f.read()
 
 
-# need to take contents and parse out {} to be prompts for user
+def write_file(path, contents):
+    """ function to write to file"""
+    with open(path, 'w') as wf:
+        wf.write(contents)
 
+
+# need to take contents and parse out {} to be prompts for user
 def build_list():
     """
     this function with find the {and } characters in the .txt file
@@ -52,7 +57,7 @@ def run():
     """ run controls the call stack for the game"""
     greeting()
     # while True:
-        # build_list()
+    # build_list()
 
 # need to read text back to user with user inputs in place of {questions}
 
