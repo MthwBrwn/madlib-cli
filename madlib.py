@@ -1,4 +1,4 @@
-
+import re
 word_list = []
 
 
@@ -35,15 +35,19 @@ def build_keys(contents):
         word_list.append(found_word)
     return (word_list)
 
-# once a list of found_words is worked out with the slices
-# these need to be prompted to user and then the user answer can be swapped with the
-# slices and then this list can be set through format.
+
+def build_stripped(contents):
+    """This removes the keys from the raw txt leaving a stripped text """
+    regex = r"\{.*?\}"
+    output = re.sub(regex, '{}', contents)
+    return output
 
 
 def parse(raw):
     """ parse pulls together tow functions: build keys and build stripped """
     prompts = build_keys(raw)
-    return prompts
+    stripped = build_stripped(raw)
+    return prompts, stripped
 
 
 def greeting():
