@@ -5,11 +5,11 @@ contents = ''
 # need to parse questions and serialize the users questions into a answerlist
 
 
-def word_open():
+def word_open(raw):
 
     """ This function pulls raw data in from the data.txt file
     """
-    get_text = open("data.txt", "rt")
+    get_text = open("./data.txt", "rt")
     contents = get_text.read()
     get_text.close()
 
@@ -38,8 +38,7 @@ def build_list():
 
 
 def greeting():
-
-
+    """the greeting sets up the game and explains how user should enter words"""
     print ('Hello welcome to our MadLib game.')
     print ('You will be asked a series of questions.')
     print ('Please reply to each question once prompted.')
@@ -50,10 +49,10 @@ def greeting():
 # need an out going message stating game and asking questions
 
 def run():
-
+    """ run controls the call stack for the game"""
     greeting()
-    word_open()
-    build_list()
+    # while True:
+        # build_list()
 
 # need to read text back to user with user inputs in place of {questions}
 

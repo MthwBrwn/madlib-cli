@@ -1,4 +1,6 @@
-from madlib import greeting, run , word_open
+import madlib
+import sys
+
 
 def test_import():
     """ First test to make sure import is valid
@@ -6,17 +8,16 @@ def test_import():
     assert True is True
 
 
-def test_run():
+def test_run(capsys):
     """ tests to see if terminal call runs print
-
     """
-    assert "Hello welcome to our MadLib game."
+    madlib.greeting()
+    capt = capsys.readouterr()
+    assert capt.out == "Hello welcome to our MadLib game.\nYou will be asked a series of questions.\nPlease reply to each question once prompted.\nOnce you are done a MadLib page will be returned to you\nLets get started\n"
 
-    assert type(contents) is str
-
-def test_build_list(actual):
-    """this test needs to test if this is working but
-    input is a txt file and output is a list"""
+# def read_right():
+#     """checking to read if read is working"""
+#     assert madlib.word_open
 
 
 #  need to test input from user
