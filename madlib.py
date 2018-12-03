@@ -5,13 +5,13 @@ contents = ''
 # need to parse questions and serialize the users questions into a answerlist
 
 
-def word_open(raw):
+def read_file(raw):
 
     """ This function pulls raw data in from the data.txt file
     """
-    get_text = open("./data.txt", "rt")
-    contents = get_text.read()
-    get_text.close()
+    # with open("./data.txt", "rt")
+    with open(raw) as f:
+        return f.read()
 
 
 # need to take contents and parse out {} to be prompts for user
